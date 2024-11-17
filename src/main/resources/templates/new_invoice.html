@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Invoice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <style>
+        /* Custom styles for the form */
+        body {
+            background-color: #87CEFA; /* Blue sky background */
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1.1rem;
+        }
+
+        h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Align submit button */
+        .submit-btn {
+            text-align: right;
+        }
+
+        /* Make form responsive */
+        @media (max-width: 768px) {
+            .form-group {
+                width: 100%;
+            }
+
+            .col-md-8 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container my-5">
+    <h3>Add Invoice</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/save_invoice}" th:object="${invoice1}" method="post">
+                    <div class="row">
+
+
+
+
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">invoice date</label>
+                            <input type="text" th:field="*{invoiceDate}" class="form-control" id="date" placeholder="invoicedate" />
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">total amount</label>
+                            <input type="text" th:field="*{totalAmount}" class="form-control" id="total" placeholder="total amount" />
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">mode de payement</label>
+                            <input type="text" th:field="*{paymentMode}" class="form-control" id="payment" placeholder="mode de payement" />
+                        </div>
+
+
+
+                        <!-- Submit Button -->
+                        <div class="form-group col-md-8 submit-btn">
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                        </div>
+
+                        <!-- Hidden Field -->
+                        <input type="hidden" id="id" th:field="*{id}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+l>
