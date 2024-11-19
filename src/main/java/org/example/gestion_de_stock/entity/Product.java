@@ -19,9 +19,6 @@ public class Product {
     private String description;
     private Integer quantity;
     private Double unitPrice;
-    private String location;
-
-    private Integer lowStockThreshold; // seuil de faible stock
     private Boolean lowStockAlert = false; // alerte de faible stock
 
     @ManyToOne
