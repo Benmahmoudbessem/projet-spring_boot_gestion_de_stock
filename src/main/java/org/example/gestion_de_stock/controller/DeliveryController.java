@@ -2,8 +2,12 @@ package org.example.gestion_de_stock.controller;
 
 import org.example.gestion_de_stock.entity.Delivery;
 import org.example.gestion_de_stock.entity.Delivery;
+import org.example.gestion_de_stock.entity.DeliveryLine;
+import org.example.gestion_de_stock.entity.Order;
+import org.example.gestion_de_stock.service.DeliveryLineService;
 import org.example.gestion_de_stock.service.DeliveryService;
 import org.example.gestion_de_stock.service.DeliveryService;
+import org.example.gestion_de_stock.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +24,19 @@ import java.util.List;
 public class DeliveryController {
     @Autowired
     DeliveryService deliveryService;
+    @ Autowired
+    OrderService orderService;
 
 
     @RequestMapping("/addDelivery")
     public String addDelivery(Model model){
         Delivery delivery = new Delivery();
+        List<Order> orderList =orderService.getAllOrder();
+
+
         model.addAttribute("Delivery1",delivery);
+        model.addAttribute("order",orderList);
+
         return "new_delivery";
 
     }

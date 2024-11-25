@@ -2,7 +2,9 @@ package org.example.gestion_de_stock.controller;
 
 import org.example.gestion_de_stock.entity.Invoice;
 import org.example.gestion_de_stock.entity.LowStockAlert;
+import org.example.gestion_de_stock.entity.Product;
 import org.example.gestion_de_stock.service.LowStockAlertService;
+import org.example.gestion_de_stock.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +17,15 @@ import java.util.List;
 public class LowStockAlertController {
     @Autowired
     LowStockAlertService lowStockAlertService;
-
+@Autowired
+    ProductService productService;
 
     @RequestMapping("/addLowStockAlert")
     public String addLowStockAlert(Model model){
         LowStockAlert lowStockAlert =new LowStockAlert();
+        List<Product> productList= productService.getAllProduct();
         model.addAttribute("lowStockAlert1", lowStockAlert);
+        model.addAttribute("product",productList);
         return "new_lowStockAlert";
     }
     @RequestMapping(value = "/save_lowStockAlert", method = RequestMethod.POST)

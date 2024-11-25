@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -20,7 +22,7 @@ public class StockMovement {
     private Product product;
 
     private Integer quantity;
-    private LocalDateTime dateTime;
+    private Date dateTime;
     private String type; // "ENTREE" ou "SORTIE"
 
 

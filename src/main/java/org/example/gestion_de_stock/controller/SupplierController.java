@@ -2,6 +2,7 @@ package org.example.gestion_de_stock.controller;
 
 import org.example.gestion_de_stock.entity.Product;
 import org.example.gestion_de_stock.entity.Supplier;
+import org.example.gestion_de_stock.service.ProductService;
 import org.example.gestion_de_stock.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +17,14 @@ public class SupplierController {
     @Autowired
     SupplierService supplierService;
 
+
     @RequestMapping("/addSupplier")
     public String addSupplier(Model model){
         Supplier supplier = new Supplier();
+
+
         model.addAttribute("Supplier1",supplier);
+
         return "new_supplier";
 
     }

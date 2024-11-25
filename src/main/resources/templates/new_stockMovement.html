@@ -94,7 +94,15 @@
               <input type="text" th:field="*{type}" class="form-control" id="type" placeholder="type" />
             </div>
 
+            <div class="form-group col-md-8">
+              <label for="name" class="col-form-label">select product </label>
+              <select th:field="*{product}" >
+                <option th:each="product: ${product}"
+                        th:value="${product.id}" th:text="${product.id}"/>
 
+              </select>
+
+            </div>
 
 
             <!-- Submit Button -->

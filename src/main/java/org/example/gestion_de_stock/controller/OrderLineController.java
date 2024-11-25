@@ -2,7 +2,10 @@ package org.example.gestion_de_stock.controller;
 
 import org.example.gestion_de_stock.entity.Order;
 import org.example.gestion_de_stock.entity.OrderLine;
+import org.example.gestion_de_stock.entity.Product;
 import org.example.gestion_de_stock.service.OrderLineService;
+import org.example.gestion_de_stock.service.OrderService;
+import org.example.gestion_de_stock.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +18,20 @@ import java.util.List;
 public class OrderLineController {
     @Autowired
     OrderLineService orderLineService;
+    @Autowired
+    OrderService orderService;
+    @Autowired
+    ProductService productService;
 
     @RequestMapping("/addOrderLine")
     public String addOrderLine(Model model){
         OrderLine orderLine = new OrderLine();
+        List<Order> orderList= orderService.getAllOrder();
+        List<Product> productList= productService.getAllProduct();
+
         model.addAttribute("OrderLine1",orderLine);
+        model.addAttribute("order",orderList);
+        model.addAttribute("product",productList);
         return "new_orderLine";
 
     }

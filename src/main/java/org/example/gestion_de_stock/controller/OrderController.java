@@ -1,8 +1,7 @@
 package org.example.gestion_de_stock.controller;
 
-import org.example.gestion_de_stock.entity.Client;
-import org.example.gestion_de_stock.entity.Order;
-import org.example.gestion_de_stock.service.OrderService;
+import org.example.gestion_de_stock.entity.*;
+import org.example.gestion_de_stock.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +14,28 @@ import java.util.List;
 public class OrderController {
     @Autowired
     OrderService orderService;
+    @Autowired
+    ClientService clientService;
+
+    @Autowired
+    private InvoiceService invoiceService;
+    @Autowired
+    DeliveryService deliveryService;
+
 
     @RequestMapping("/addOrder")
     public String addOrder(Model model){
         Order order = new Order();
+        List<Client> clientList=clientService.getAllClient();
+
+        List<Invoice> invoiceList= invoiceService.getAllInvoice();
+        List<Delivery> deliveryList=deliveryService.getAllDelivery();
+
         model.addAttribute("Order1",order);
+        model.addAttribute("client",clientList);
+
+        model.addAttribute("invoice",invoiceList);
+        model.addAttribute("delivery",deliveryList);
         return "new_order";
 
     }

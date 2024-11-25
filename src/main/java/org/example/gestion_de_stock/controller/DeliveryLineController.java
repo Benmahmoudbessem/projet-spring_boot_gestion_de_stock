@@ -1,10 +1,14 @@
 package org.example.gestion_de_stock.controller;
 
+import org.example.gestion_de_stock.entity.Delivery;
 import org.example.gestion_de_stock.entity.DeliveryLine;
 
 
+import org.example.gestion_de_stock.entity.Product;
 import org.example.gestion_de_stock.service.DeliveryLineService;
 
+import org.example.gestion_de_stock.service.DeliveryService;
+import org.example.gestion_de_stock.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +21,21 @@ import java.util.List;
 public class DeliveryLineController {
     @Autowired
     DeliveryLineService deliveryLineService;
-
-
+    @Autowired
+    private DeliveryService deliveryService;
+@Autowired
+    ProductService productService;
 
     @RequestMapping("/addDeliveryLine")
     public String addDeliveryLine(Model model){
         DeliveryLine deliveryLine = new DeliveryLine();
+        List<Delivery> deliveryList= deliveryService.getAllDelivery();
+        List<Product> productList= productService.getAllProduct();
+
         model.addAttribute("DeliveryLine1",deliveryLine);
+        model.addAttribute("Delivery",deliveryList);
+        model.addAttribute("product",productList);
+
         return "new_deliveryLine";
 
     }

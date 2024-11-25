@@ -1,7 +1,10 @@
 package org.example.gestion_de_stock.controller;
 
 import org.example.gestion_de_stock.entity.Client;
+import org.example.gestion_de_stock.entity.Order;
+import org.example.gestion_de_stock.entity.Product;
 import org.example.gestion_de_stock.service.ClientService;
+import org.example.gestion_de_stock.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +22,10 @@ public class ClientController {
     @RequestMapping("/addClient")
     public String addClient(Model model){
         Client client = new Client();
+
         model.addAttribute("Client1",client);
+
+
         return "new_client";
 
     }

@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+
 @AllArgsConstructor
 @Data
 @NoArgsConstructor
@@ -21,7 +23,7 @@ public class LowStockAlert {
 
     private Integer currentQuantity;
 
-    private LocalDateTime alertDate;
+    private Date alertDate;
 
 
 }

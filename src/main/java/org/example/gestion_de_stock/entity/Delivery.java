@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,7 +17,7 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate deliveryDate;
+    private Date deliveryDate;
 
     @OneToOne(mappedBy = "delivery")
     private Order order;

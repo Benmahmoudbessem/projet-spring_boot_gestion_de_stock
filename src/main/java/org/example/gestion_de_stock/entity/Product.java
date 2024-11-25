@@ -19,7 +19,7 @@ public class Product {
     private String description;
     private Integer quantity;
     private Double unitPrice;
-    private Boolean lowStockAlert = false; // alerte de faible stock
+
 
     @ManyToOne
     private Category category;

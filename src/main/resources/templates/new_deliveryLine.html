@@ -86,9 +86,25 @@
               <input type="text" th:field="*{quantityDelivered}" class="form-control" id="quantity" placeholder="quantity" />
             </div>
 
+            <div class="form-group col-md-8">
+              <label for="name" class="col-form-label">select delivery </label>
+              <select th:field="*{delivery.id}" >
+                <option th:each="delivery : ${Delivery}"
+                        th:value="${delivery.id}" th:text="${delivery.id}"/>
 
+              </select>
 
+            </div>
 
+            <div class="form-group col-md-8">
+              <label for="name" class="col-form-label">select product </label>
+              <select th:field="*{product.id}" >
+                <option th:each="product : ${product}"
+                        th:value="${product.id}" th:text="${product.id}"/>
+
+              </select>
+
+            </div>
             <!-- Submit Button -->
             <div class="form-group col-md-8 submit-btn">
               <input type="submit" class="btn btn-primary" value="Submit">

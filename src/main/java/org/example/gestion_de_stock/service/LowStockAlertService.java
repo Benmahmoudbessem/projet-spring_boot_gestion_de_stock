@@ -14,6 +14,7 @@ import java.util.List;
 public class LowStockAlertService {
     @Autowired
     LowStockAlertRepository lowStockAlertRepository;
+@Autowired private ProductService productService;
 
     public LowStockAlert createLowStockAlert(LowStockAlert lowStockAlert) {return lowStockAlertRepository.save(lowStockAlert);}
     public List<LowStockAlert> getAllLowStockAlert() { return lowStockAlertRepository.findAll();}

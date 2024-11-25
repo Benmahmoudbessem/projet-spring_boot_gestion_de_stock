@@ -3,6 +3,7 @@ package org.example.gestion_de_stock.controller;
 import org.example.gestion_de_stock.entity.Category;
 import org.example.gestion_de_stock.entity.Product;
 import org.example.gestion_de_stock.entity.StockMovement;
+import org.example.gestion_de_stock.service.ProductService;
 import org.example.gestion_de_stock.service.StockMovementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,11 +18,16 @@ public class StockMovementController {
 
     @Autowired
     StockMovementService stockMovementService;
+    @Autowired
+    ProductService productService;
 
     @RequestMapping("/addStockMovement")
     public String addStockMovement(Model model){
         StockMovement stockMovement = new StockMovement();
+        List<Product> productList= productService.getAllProduct();
+
         model.addAttribute("StockMovement1",stockMovement);
+        model.addAttribute("product",productList);
         return "new_stockMovement";
 
     }
