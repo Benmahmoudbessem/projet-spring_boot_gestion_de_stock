@@ -87,6 +87,10 @@
             background-color: #555;
             transform: scale(1.05);
         }
+        header nav .button-container a.low{
+            background-color: red;
+            transform: scale(1.05);
+        }
 
         main {
             text-align: center;
@@ -186,6 +190,41 @@
         .social-links a i {
             font-size: 1.5rem;
         }
+
+        .dv {
+            display: flex;
+            flex-direction: column; /* Aligne les liens verticalement */
+            align-items: start; /* Aligne les liens à gauche */
+            gap: 10px; /* Espace entre les liens */
+            padding: 20px;
+            background-color:black; /* Couleur d'arrière-plan plus claire */
+            border: 1px solid #ccc; /* Bordure encore plus légère */
+            border-radius: 5px; /* Coins arrondis */
+            width: fit-content; /* Ajuste la largeur au contenu */
+            position: absolute; /* Positionne l'élément */
+            top: 200px;
+            left: 20px; /* Position à gauche de la page */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ajoute une ombre subtile */
+        }
+
+        .dv a {
+            text-decoration: none; /* Supprime le soulignement des liens */
+            color: red; /* Couleur du texte des liens */
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            padding: 5px 10px; /* Ajoute de l'espace intérieur */
+            border: 1px solid transparent; /* Ajoute un effet de bordure au survol */
+            border-radius: 3px; /* Coins arrondis */
+            transition: all 0.3s ease; /* Effet de transition pour le survol */
+        }
+
+        .dv a:hover {
+            background-color: yellow; /* Couleur de fond douce au survol */
+            color: #0056b3; /* Couleur du texte plus foncée au survol */
+            border-color: #007bff; /* Couleur de bordure au survol */
+        }
+
+
     </style>
 </head>
 <body>
@@ -201,23 +240,34 @@
             <a href="/all" class="cat">Category</a>
             <a href="/all/product/" class="products">Produits</a>
             <a href="/all/supplier/" class="suppliers">Fournisseurs</a>
-            <a href="/all/order/" class="orders">Commandes</a>
+            <a href="/all/order/" class="orders">Order</a>
             <a href="/all/stockMovement/" class="settings">StockMovement</a>
+            <a href="/all/lowStockAlert/" class="low">LowStock</a>
         </div>
     </nav>
 </header>
 <main>
-
-
     <!-- Ajout d'un conteneur d'images -->
     <div class="image-container">
         <img src="/images/m1.jpg" alt="Produit 1">
         <img src="/images/m2.jpg" alt="Produit 2">
         <img src="/images/m3.png" alt="Produit 3">
         <img src="/images/font.jpeg" alt="Produit 4">
-        <img src="/images/lol.avif" alt="Produit 4">
+        <img src="/images/gs.jpg" alt="Produit 5">
+        <img src="/images/gss.webp" alt="Produit 6">
+        <img src="/images/gst.jpg" alt="Produit 7">
+        <img src="/images/lol.avif" alt="Produit 5">
     </div>
+
 </main>
+<div class="dv">
+    <a href="/all/client/" >Liste des Clients</a>
+    <a href="/all/deliveryLine/"> deliveryLine</a>
+    <a href="/all/invoice/">Liste des factures</a>
+    <a href="/all/orderLine/">OrderLine</a>
+
+
+</div>
 <footer>
     <p>&copy; 2024 - Gestion de Stock. Tous droits réservés. TEK-UP-</p>
     <div class="social-links">
